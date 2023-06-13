@@ -7,7 +7,6 @@ import java.util.Random;
 import se.kth.iv1350.controller.Controller;
 import se.kth.iv1350.controller.OperationFailedException;
 import se.kth.iv1350.integration.InvalidGoodException;
-import se.kth.iv1350.integration.TotalRevenueFileOutput;
 import se.kth.iv1350.model.InvalidPaymentException;
 import se.kth.iv1350.utility.Amount;
 import se.kth.iv1350.utility.LogHandler;
