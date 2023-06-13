@@ -34,8 +34,6 @@ public class View {
      */
     public View(Controller contr) {
         this.contr = contr;
-        contr.addObserver(new TotalRevenueView());
-        contr.addObserver(new TotalRevenueFileOutput());
     }
 
     /**
@@ -49,14 +47,12 @@ public class View {
 
         scanGoods();
 
-        String output = contr.displayTotalWithVAT();
-        print("---Cashier displays total with VAT---\n" + output);  
+        print("---Cashier displays total with VAT---\n" + contr.displayTotalWithVAT());  
     
         Amount paidAmount = new Amount(PAID_AMOUNT);
         print("---Cashier enters the paid amount---\n");
         try {
-            output = contr.enterPaidAmount(paidAmount);
-            print("Entered amount is: " + paidAmount + "\n" + output);
+            print("Entered amount is: " + paidAmount + "\n" + contr.enterPaidAmount(paidAmount));
         } catch (InvalidPaymentException exc) {
             errorMsgHandler.showErrorMsg(
                 "The amount entered is less than the cost of the goods. Payment cancelled."+
