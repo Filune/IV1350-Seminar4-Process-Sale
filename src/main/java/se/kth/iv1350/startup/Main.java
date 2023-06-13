@@ -3,6 +3,8 @@ package se.kth.iv1350.startup;
 import se.kth.iv1350.controller.Controller;
 import se.kth.iv1350.integration.LedgerSystem;
 import se.kth.iv1350.integration.Printer;
+import se.kth.iv1350.integration.TotalRevenueFileOutput;
+import se.kth.iv1350.view.TotalRevenueView;
 import se.kth.iv1350.view.View;
 
 /**
@@ -17,6 +19,8 @@ public class Main {
         Printer printer = new Printer();
         LedgerSystem ledger = new LedgerSystem();
         Controller contr = new Controller(printer, ledger);
+        contr.addObserver(new TotalRevenueFileOutput());
+        contr.addObserver(new TotalRevenueView());
         View view = new View(contr);
         view.sample();
     }
